@@ -551,6 +551,10 @@ video {
   border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
+.self-center {
+  align-self: center;
+}
+
 @media (min-width: 640px) {
   .sm\:my-1 {
     margin-top: 0.25rem;
