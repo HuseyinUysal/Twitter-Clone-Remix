@@ -1,4 +1,6 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink,Form,FormProps } from "@remix-run/react";
+import {db} from "utils\db.server.js"
+
 
 export default function Index() {
   return (
@@ -58,8 +60,16 @@ export default function Index() {
       </NavLink>
     </nav>
     </div>
+    
     <div>
-      
+    <Form method="post" action="post">
+    <select id="/" name="/" className=" text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <option value="volvo">Everyone</option>
+    <option value="saab">/</option>
+  </select>
+    <textarea id="post" rows="1" minLength="1" maxLength="2000" className="resize-none focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="What's happening?" required/>
+    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center items-end dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tweet</button>
+    </Form>
     </div>
     <div>as</div>
     </div>

@@ -1,7 +1,7 @@
-// Import the functions you need from the SDKs you need
+import admin, { credential } from 'firebase-admin'
+import { applicationDefault, initializeApp as initializeAdminApp } from 'firebase-admin/app';
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,8 +13,19 @@ const firebaseConfig = {
   appId: "1:952465200796:web:b9efaf7d791f962f65ff59"
 };
 
+if(!admin.apps.length) {
+    initializeAdminApp({
+        credential: applicationDefault(),
+        databaseURL: "https://remix-firebase-3622f.firebaseio.com"
+    })
+}
+
+const db = admin.firestore()
+
 let Firebase;
 
 if(!Firebase?.apps?.length){
     Firebase = initializeApp(firebaseConfig)
 }
+
+export {db}
